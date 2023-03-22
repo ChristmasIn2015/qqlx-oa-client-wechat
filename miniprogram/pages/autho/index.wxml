@@ -1,0 +1,18 @@
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="pickAvator">
+    <image class="avatar" src="{{avator}}"></image>
+  </button> 
+
+  <mp-form>
+    <mp-cells>
+        
+      <mp-cell title="昵称">
+        <input type="nickname" model:value="{{nickname}}" placeholder="请输入昵称，建议使用真实姓名"/>
+      </mp-cell>
+      <mp-cell title="手机号">
+        <input type="phone" disabled placeholder="自动获取"/>
+      </mp-cell>
+    </mp-cells>
+
+    <button class="btn-confirm" open-type="getPhoneNumber" bindgetphonenumber="pickPhone" type="primary">保存</button>
+
+  </mp-form>

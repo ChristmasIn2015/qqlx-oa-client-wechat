@@ -6,13 +6,15 @@ Page({
     data: {
         index: "",
     },
-    onLoad() {
-        // @ts-ignore
-        wx.login({
-            success: (res) => {
-                this.setData({ index: "https://qqlx.tech/oa-client/login" + "?code=" + res.code });
-            },
-            fail: (e) => console.log(e),
-        });
+    async onLoad(options) {
+        const info = await wx.login();
+        let url = "http://localhost:3000/oa-client/login"
+        url += `?code=${info.code}`
+
+        options.avator && (url += `&avator=${options.avator}`)
+        options.nickname && (url += `&nickname=${options.nickname}`)
+        options.clientPhoneCode && (url += `&clientPhoneCode=${options.clientPhoneCode}`)
+
+        this.setData({ index:  url });
     },
 });

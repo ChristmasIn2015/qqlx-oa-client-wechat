@@ -1,2 +1,1 @@
-<!--index.wxml-->
-<web-view src="{{index}}"/>
+<web-view wx:if="index" src="{{index}}"></web-view>
